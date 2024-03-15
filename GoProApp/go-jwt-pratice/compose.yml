@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  my-db:
+    image: "mongo:6"
+    ports:
+      - "27017:27017"
+    volumes:
+      - my_vol_data:/data1
+  
+  my-app:
+    image: "dhaneshwarreddy/application"
+    #build: .
+    ports:
+      - "8080:8082"
+    # watch instruction should used with the build
+    # develop:
+    #   watch:
+    #     - action: sync+restart
+    #       path: ./
+    #       target:
+  
+volumes:
+  my_vol_data:
+
+
